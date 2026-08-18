@@ -8,6 +8,7 @@ import { PanchangStudio } from './components/demos/PanchangStudio';
 import { ColorExtractorStudio } from './components/demos/ColorExtractorStudio';
 import { IndicNumberStudio } from './components/demos/IndicNumberStudio';
 import { Base64ToolkitStudio } from './components/demos/Base64ToolkitStudio';
+import { Logo } from './components/Logo';
 import { AUTHOR } from './data/packagesInfo';
 
 export const App: React.FC = () => {
@@ -66,8 +67,11 @@ export const App: React.FC = () => {
         transition: 'all 0.3s ease',
       }}>
         <div style={{ maxWidth: '1360px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-          <div>
-            Built with ❤️ for <a href={AUTHOR.portfolioUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#0284c7', textDecoration: 'none', fontWeight: 700 }}>{AUTHOR.name}</a>'s open source NPM suite.
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <Logo size={24} />
+            <span>
+              Built with ❤️ for <a href={AUTHOR.portfolioUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#0284c7', textDecoration: 'none', fontWeight: 700 }}>{AUTHOR.name}</a>'s open source NPM suite.
+            </span>
           </div>
           <div>
             All packages licensed under <b>MIT</b> • Zero External Dependencies

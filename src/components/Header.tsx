@@ -1,6 +1,7 @@
 import React from 'react';
-import { Package, ExternalLink, Code2, Sparkles, Globe, Sun, Moon } from 'lucide-react';
+import { Package, ExternalLink, Code2, Globe, Sun, Moon } from 'lucide-react';
 import { AUTHOR } from '../data/packagesInfo';
+import { Logo } from './Logo';
 import type { PackageId } from '../types';
 
 interface HeaderProps {
@@ -37,18 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectTab, theme, onToggleThem
           onClick={() => onSelectTab('overview')}
           style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
         >
-          <div style={{
-            width: '42px',
-            height: '42px',
-            borderRadius: '14px',
-            background: 'linear-gradient(135deg, #6366f1, #06b6d4)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 4px 15px rgba(99, 102, 241, 0.4)',
-          }}>
-            <Sparkles size={22} color="#ffffff" />
-          </div>
+          <Logo size={42} />
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span style={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.02em', color: 'var(--text-primary)' }}>
