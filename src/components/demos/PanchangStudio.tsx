@@ -398,20 +398,20 @@ console.log('Festivals:', panchang.festivals);`;
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-              <div style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.2)', padding: '12px', borderRadius: 'var(--radius-md)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#fbbf24', fontSize: '0.8rem', fontWeight: 600 }}>
-                  <Sun size={14} /> सूर्योदय (Sunrise)
+              <div style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1.5px solid rgba(245, 158, 11, 0.3)', padding: '12px', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#b45309', fontSize: '0.82rem', fontWeight: 700 }}>
+                  <Sun size={15} color="#d97706" /> सूर्योदय (Sunrise)
                 </div>
-                <div style={{ fontSize: '1.15rem', fontWeight: 800, marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
+                <div style={{ fontSize: '1.25rem', fontWeight: 800, marginTop: '4px', color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>
                   {panchangData.astronomy.sunrise}
                 </div>
               </div>
 
-              <div style={{ background: 'rgba(244, 63, 94, 0.08)', border: '1px solid rgba(244, 63, 94, 0.2)', padding: '12px', borderRadius: 'var(--radius-md)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#fb7185', fontSize: '0.8rem', fontWeight: 600 }}>
-                  <Sun size={14} /> सूर्यास्त (Sunset)
+              <div style={{ background: 'rgba(244, 63, 94, 0.08)', border: '1.5px solid rgba(244, 63, 94, 0.3)', padding: '12px', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#be123c', fontSize: '0.82rem', fontWeight: 700 }}>
+                  <Sun size={15} color="#e11d48" /> सूर्यास्त (Sunset)
                 </div>
-                <div style={{ fontSize: '1.15rem', fontWeight: 800, marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
+                <div style={{ fontSize: '1.25rem', fontWeight: 800, marginTop: '4px', color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>
                   {panchangData.astronomy.sunset}
                 </div>
               </div>
@@ -419,80 +419,80 @@ console.log('Festivals:', panchang.festivals);`;
 
             {/* Moonrise for Sankashti */}
             <div style={{
-              background: 'rgba(99, 102, 241, 0.1)',
-              border: '1px solid rgba(99, 102, 241, 0.3)',
+              background: 'rgba(79, 70, 229, 0.08)',
+              border: '1.5px solid rgba(79, 70, 229, 0.3)',
               padding: '14px',
               borderRadius: 'var(--radius-md)',
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#818cf8', fontSize: '0.85rem', fontWeight: 700 }}>
-                  <Moon size={16} /> चंद्रोदय वेळ (Moonrise - Sankashti Fast)
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#4338ca', fontSize: '0.88rem', fontWeight: 700 }}>
+                  <Moon size={16} color="#4f46e5" /> चंद्रोदय वेळ (Moonrise - Sankashti Fast)
                 </div>
-                <span className="badge" style={{ background: 'rgba(99, 102, 241, 0.25)', color: '#c7d2fe' }}>
+                <span className="badge" style={{ background: 'rgba(79, 70, 229, 0.15)', color: '#4338ca', border: '1px solid rgba(79, 70, 229, 0.35)', fontWeight: 700 }}>
                   उपवास सोडण्याची वेळ
                 </span>
               </div>
-              <div style={{ fontSize: '1.3rem', fontWeight: 800, color: '#a5b4fc', marginTop: '6px', fontFamily: 'var(--font-mono)' }}>
+              <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#4338ca', marginTop: '6px', fontFamily: 'var(--font-mono)' }}>
                 {panchangData.astronomy.moonrise || 'N/A'}
               </div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
-                चंद्रास्त: {panchangData.astronomy.moonset} | दिनमान: {panchangData.astronomy.dayLength}
+              <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '4px', fontWeight: 500 }}>
+                चंद्रास्त: <b>{panchangData.astronomy.moonset}</b> | दिनमान: <b>{panchangData.astronomy.dayLength}</b>
               </div>
             </div>
 
-            <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-              लाहिरी अयनांश (Lahiri Ayanamsha): <b>{panchangData.astronomy.lahiriAyanamshaDegrees}°</b> | मध्यान्ह: {panchangData.astronomy.solarNoon}
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+              लाहिरी अयनांश (Lahiri Ayanamsha): <b style={{ color: 'var(--text-primary)' }}>{panchangData.astronomy.lahiriAyanamshaDegrees}°</b> | मध्यान्ह: <b style={{ color: 'var(--text-primary)' }}>{panchangData.astronomy.solarNoon}</b>
             </div>
           </div>
 
           {/* Card 3: Auspicious & Inauspicious Muhurtas */}
           <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', borderBottom: '1px solid var(--border-subtle)', paddingBottom: '12px' }}>
-              <Clock size={18} color="#10b981" />
-              <h3 style={{ fontSize: '1.05rem', fontWeight: 700 }}>शुभ व अशुभ मुहूर्त (Muhurtas & Kaal)</h3>
+              <Clock size={18} color="#059669" />
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>शुभ व अशुभ मुहूर्त (Muhurtas & Kaal)</h3>
             </div>
 
             {/* Inauspicious Rahukaal */}
-            <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.25)', padding: '12px', borderRadius: 'var(--radius-md)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ color: '#f87171', fontWeight: 700, fontSize: '0.85rem' }}>⏳ राहू काळ (Rahu Kaal - वर्ज्य):</span>
-                <span style={{ fontFamily: 'var(--font-mono)', color: '#fca5a5', fontWeight: 700, fontSize: '0.9rem' }}>
+            <div style={{ background: 'rgba(239, 68, 68, 0.08)', border: '1.5px solid rgba(239, 68, 68, 0.3)', padding: '12px', borderRadius: 'var(--radius-md)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
+                <span style={{ color: '#b91c1c', fontWeight: 700, fontSize: '0.88rem' }}>⏳ राहू काळ (Rahu Kaal - वर्ज्य):</span>
+                <span style={{ fontFamily: 'var(--font-mono)', color: '#b91c1c', fontWeight: 800, fontSize: '0.95rem' }}>
                   {panchangData.muhurta.rahuKaal.start} ते {panchangData.muhurta.rahuKaal.end}
                 </span>
               </div>
             </div>
 
-            <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '10px 12px', borderRadius: 'var(--radius-md)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem' }}>
-                <span style={{ color: 'var(--text-secondary)' }}>यमगंड काळ (Yamaganda):</span>
-                <span style={{ fontFamily: 'var(--font-mono)', color: '#f8fafc' }}>
+            <div style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border-subtle)', padding: '10px 14px', borderRadius: 'var(--radius-md)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem' }}>
+                <span style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>यमगंड काळ (Yamaganda):</span>
+                <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-primary)', fontWeight: 700 }}>
                   {panchangData.muhurta.yamagandaKaal.start} ते {panchangData.muhurta.yamagandaKaal.end}
                 </span>
               </div>
             </div>
 
-            <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '10px 12px', borderRadius: 'var(--radius-md)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem' }}>
-                <span style={{ color: 'var(--text-secondary)' }}>गुलिक काळ (Gulika Kaal):</span>
-                <span style={{ fontFamily: 'var(--font-mono)', color: '#f8fafc' }}>
+            <div style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border-subtle)', padding: '10px 14px', borderRadius: 'var(--radius-md)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem' }}>
+                <span style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>गुलिक काळ (Gulika Kaal):</span>
+                <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-primary)', fontWeight: 700 }}>
                   {panchangData.muhurta.gulikaKaal.start} ते {panchangData.muhurta.gulikaKaal.end}
                 </span>
               </div>
             </div>
 
             {/* Auspicious Muhurtas */}
-            <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.25)', padding: '12px', borderRadius: 'var(--radius-md)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ color: '#34d399', fontWeight: 700, fontSize: '0.85rem' }}>✨ अभिजीत मुहूर्त (Abhijit Muhurta):</span>
-                <span style={{ fontFamily: 'var(--font-mono)', color: '#6ee7b7', fontWeight: 700, fontSize: '0.9rem' }}>
+            <div style={{ background: 'rgba(16, 185, 129, 0.08)', border: '1.5px solid rgba(16, 185, 129, 0.3)', padding: '12px', borderRadius: 'var(--radius-md)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
+                <span style={{ color: '#047857', fontWeight: 700, fontSize: '0.88rem' }}>✨ अभिजीत मुहूर्त (Abhijit Muhurta):</span>
+                <span style={{ fontFamily: 'var(--font-mono)', color: '#047857', fontWeight: 800, fontSize: '0.95rem' }}>
                   {panchangData.muhurta.abhijitMuhurta.start} ते {panchangData.muhurta.abhijitMuhurta.end}
                 </span>
               </div>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', padding: '0 4px', color: 'var(--text-secondary)' }}>
-              <span>ब्रह्म मुहूर्त: <b>{panchangData.muhurta.brahmaMuhurta.start}</b></span>
-              <span>अमृत काळ: <b>{panchangData.muhurta.amritKaal.start} - {panchangData.muhurta.amritKaal.end}</b></span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', padding: '0 4px', color: 'var(--text-secondary)', flexWrap: 'wrap', gap: '8px' }}>
+              <span>ब्रह्म मुहूर्त: <b style={{ color: 'var(--text-primary)' }}>{panchangData.muhurta.brahmaMuhurta.start}</b></span>
+              <span>अमृत काळ: <b style={{ color: 'var(--text-primary)' }}>{panchangData.muhurta.amritKaal.start} - {panchangData.muhurta.amritKaal.end}</b></span>
             </div>
           </div>
         </div>

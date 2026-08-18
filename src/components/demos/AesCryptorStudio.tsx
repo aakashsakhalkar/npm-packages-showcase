@@ -494,20 +494,20 @@ console.log('Decrypted Data:', decrypted);`;
             }}>
               <span style={{ fontWeight: 700, color: 'var(--text-secondary)' }}>Payload Component Breakdown:</span>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'rgba(99, 102, 241, 0.2)', color: '#818cf8' }}>
+                <span style={{ padding: '4px 10px', borderRadius: '6px', background: 'rgba(99, 102, 241, 0.12)', color: '#4f46e5', fontWeight: 700 }}>
                   Prefix: ${payloadParts[0]}$
                 </span>
-                <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'rgba(6, 182, 212, 0.2)', color: '#22d3ee' }}>
+                <span style={{ padding: '4px 10px', borderRadius: '6px', background: 'rgba(6, 182, 212, 0.12)', color: '#0284c7', fontWeight: 700 }}>
                   Version: {payloadParts[1]}
                 </span>
-                <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'rgba(245, 158, 11, 0.2)', color: '#fbbf24' }}>
+                <span style={{ padding: '4px 10px', borderRadius: '6px', background: 'rgba(245, 158, 11, 0.12)', color: '#d97706', fontWeight: 700 }}>
                   Salt ({format}): {payloadParts[2]?.slice(0, 8)}...
                 </span>
-                <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'rgba(236, 72, 153, 0.2)', color: '#f472b6' }}>
+                <span style={{ padding: '4px 10px', borderRadius: '6px', background: 'rgba(236, 72, 153, 0.12)', color: '#db2777', fontWeight: 700 }}>
                   IV ({format}): {payloadParts[3]?.slice(0, 8)}...
                 </span>
-                <span style={{ padding: '3px 8px', borderRadius: '4px', background: 'rgba(16, 185, 129, 0.2)', color: '#34d399' }}>
-                  Ciphertext + 128-bit Tag: {payloadParts[4]?.slice(0, 12)}...
+                <span style={{ padding: '4px 10px', borderRadius: '6px', background: 'rgba(16, 185, 129, 0.12)', color: '#059669', fontWeight: 700 }}>
+                  Ciphertext + Tag: {payloadParts[4]?.slice(0, 12)}...
                 </span>
               </div>
             </div>
@@ -516,31 +516,31 @@ console.log('Decrypted Data:', decrypted);`;
           {/* Tamper Testing Simulator */}
           <div style={{
             background: 'rgba(245, 158, 11, 0.08)',
-            border: '1px solid rgba(245, 158, 11, 0.25)',
-            padding: '14px',
+            border: '1.5px solid rgba(245, 158, 11, 0.3)',
+            padding: '16px',
             borderRadius: 'var(--radius-md)',
             display: 'flex',
             flexDirection: 'column',
             gap: '10px',
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#fbbf24', fontSize: '0.85rem', fontWeight: 700 }}>
-              <AlertTriangle size={16} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#b45309', fontSize: '0.88rem', fontWeight: 800 }}>
+              <AlertTriangle size={16} color="#d97706" />
               <span>GCM Tamper & Authentication Tag Validation Simulator</span>
             </div>
-            <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+            <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', fontWeight: 500 }}>
               AES-GCM authenticates every single byte. Tampering with 1 character or using a wrong password immediately causes decryption to fail.
             </p>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               <button
                 onClick={handleTamperPayload}
                 style={{
-                  padding: '6px 12px',
+                  padding: '7px 14px',
                   borderRadius: 'var(--radius-sm)',
-                  background: 'rgba(245, 158, 11, 0.2)',
-                  color: '#fbbf24',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  border: '1px solid rgba(245, 158, 11, 0.4)',
+                  background: 'rgba(245, 158, 11, 0.15)',
+                  color: '#b45309',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  border: '1.5px solid rgba(245, 158, 11, 0.35)',
                 }}
               >
                 Mutate 1 Ciphertext Byte
@@ -551,13 +551,13 @@ console.log('Decrypted Data:', decrypted);`;
                   handleDecrypt(encryptedOutput, 'WrongPassword123!');
                 }}
                 style={{
-                  padding: '6px 12px',
+                  padding: '7px 14px',
                   borderRadius: 'var(--radius-sm)',
-                  background: 'rgba(244, 63, 94, 0.2)',
-                  color: '#fb7185',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  border: '1px solid rgba(244, 63, 94, 0.4)',
+                  background: 'rgba(244, 63, 94, 0.15)',
+                  color: '#be123c',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  border: '1.5px solid rgba(244, 63, 94, 0.35)',
                 }}
               >
                 Test Wrong Password
@@ -568,12 +568,14 @@ console.log('Decrypted Data:', decrypted);`;
                   handleEncrypt();
                 }}
                 style={{
-                  padding: '6px 12px',
+                  padding: '7px 14px',
                   borderRadius: 'var(--radius-sm)',
-                  background: 'rgba(255, 255, 255, 0.08)',
+                  background: 'var(--bg-card)',
                   color: 'var(--text-primary)',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  border: '1px solid var(--border-subtle)',
+                  boxShadow: '0 2px 6px rgba(0, 0, 0, 0.04)',
                 }}
               >
                 Reset to Original
