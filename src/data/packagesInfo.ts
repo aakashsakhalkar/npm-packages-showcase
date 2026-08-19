@@ -30,7 +30,7 @@ export const PACKAGES_INFO: PackageMeta[] = [
     id: 'panchang',
     name: 'Marathi Panchang Core',
     npmName: 'marathi-panchang-core',
-    version: '1.0.3',
+    version: '1.0.4',
     description: 'Ultra-accurate, zero-dependency Marathi Panchang and Hindu Calendar astronomical engine for Web, Node.js, and Android using Lahiri Ayanamsha & Amanta month system.',
     tagline: 'Astronomical Hindu Calendar & Muhurat Engine',
     icon: 'Sun',
