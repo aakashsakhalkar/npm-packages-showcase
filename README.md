@@ -318,12 +318,45 @@ npx netlify-cli deploy --prod --dir=dist
 
 ---
 
+## 📝 Recent Updates & Changelog
+
+### 📅 August 19, 2026
+
+#### 🐛 Bug Fixes & UI Accessibility
+- **Fixed Light Mode Text Contrast**: Resolved low-contrast and unreadable text in Light Mode across all 5 interactive studios.
+- **Panchang Festival Badges**: Updated Marathi festival badges (`सण व उत्सव`) from low-contrast light pink to deep, vibrant `#be185d` with clean borders for high WCAG readability.
+- **Header Badges & Version Tags**: Updated pale yellow/amber/green badges across all studio header banners to high-contrast theme-aligned colors.
+- **Decrypted Output & Verification Alerts**: Fixed pale green and red status containers in `aescryptor-ts` to ensure decrypted payloads and error states are crisp and legible.
+- **Theme Parity for Inputs**: Replaced hardcoded dark background textareas and boxes in `base64-toolkit` with theme-adaptive `var(--bg-input)` and `var(--bg-subtle)`.
+- **Validation Status Colors**: Enhanced contrast on RFC 4648 validation alerts in `base64-toolkit` (`#047857` valid / `#b91c1c` invalid).
+
+#### 🚀 Enhancements
+- Verified full responsiveness and theme switching transitions across all components.
+- Streamlined production build and Netlify deployment instructions.
+
+---
+
+### 📅 August 18, 2026
+
+#### ✨ New Features
+- **Custom Brand Identity & Favicon**:
+  - Designed custom 3D isometric NPM package cube vector design (`public/favicon.svg`) with glassmorphic squircle tile, neon facet gradients, code brackets, and accent sparkles.
+  - Linked SVG favicon and configured browser `theme-color` in `index.html`.
+  - Converted and generated high-resolution PNG raster assets (`public/favicon.png`, `public/logo.png`).
+- **Reusable Logo Component**:
+  - Built `<Logo />` React vector component in `src/components/Logo.tsx` with customizable sizing and interactive hover micro-animations.
+  - Integrated brand logo into the sticky Header navigation and Footer.
+- **Production Build & CI/CD Pipeline**:
+  - Configured `netlify.toml` for Single Page Application (SPA) routing and zero-config automated builds.
+
+---
+
 ## 👨‍💻 Author & Maintainer
 
 **Aakash Sakhalkar**
 - 🌐 **Portfolio**: [https://aakash-sakhalkar.web.app/](https://aakash-sakhalkar.web.app/)
 - 📦 **NPM Profile**: [https://www.npmjs.com/~aakash.sakhalkar](https://www.npmjs.com/~aakash.sakhalkar)
-- 💻 **GitHub**: [https://github.com/aakash-sakhalkar](https://github.com/aakash-sakhalkar)
+- 💻 **GitHub**: [https://github.com/aakashsakhalkar](https://github.com/aakashsakhalkar)
 
 ---
 
