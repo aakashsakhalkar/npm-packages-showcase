@@ -11,6 +11,8 @@ import { Base64ToolkitStudio } from './components/demos/Base64ToolkitStudio';
 import { Logo } from './components/Logo';
 import { AUTHOR } from './data/packagesInfo';
 
+import { ErrorBoundary } from './components/ErrorBoundary';
+
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<PackageId>('overview');
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -53,7 +55,9 @@ export const App: React.FC = () => {
 
       <main style={{ maxWidth: '1360px', width: '100%', margin: '0 auto', padding: '0 24px 60px 24px', flex: 1 }}>
         <TabNav activeTab={activeTab} onSelectTab={setActiveTab} />
-        {renderActiveStudio()}
+        <ErrorBoundary>
+          {renderActiveStudio()}
+        </ErrorBoundary>
       </main>
 
       <footer style={{

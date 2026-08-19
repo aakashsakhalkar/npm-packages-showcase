@@ -23,7 +23,7 @@ npm install aescryptor-ts marathi-panchang-core web-color-extractor indic-number
 | # | Package | Version | Description | External Deps |
 |---|---------|---------|-------------|---------------|
 | 1 | [`aescryptor-ts`](#1-aescryptor-ts) | `v1.0.0` | Zero-dependency AES-256-GCM encryption/decryption with PBKDF2 & tamper protection. | **0** |
-| 2 | [`marathi-panchang-core`](#2-marathi-panchang-core) | `v1.0.3` | Ultra-accurate Marathi Panchang and Hindu Calendar astronomical engine. | **0** |
+| 2 | [`marathi-panchang-core`](#2-marathi-panchang-core) | `v1.0.4` | Ultra-accurate Marathi Panchang and Hindu Calendar astronomical engine. | **0** |
 | 3 | [`web-color-extractor`](#3-web-color-extractor) | `v1.0.0` | Client-side dynamic color palette extractor using HTML5 Canvas & MMCQ. | **0** |
 | 4 | [`indic-number-words`](#4-indic-number-words) | `v1.0.1` | Number to Indian format, words, currency, fractions & native digits across 18 Indic languages. | **0** |
 | 5 | [`base64-toolkit`](#5-base64-toolkit) | `v1.0.0` | Ultra-fast Base64 codec, magic-byte format detection (30+ formats) & Base64URL. | **0** |
@@ -78,14 +78,15 @@ const random256Key = AesCryptor.generateKey(256); // Returns 256-bit hex/base64 
 
 ## 2. `marathi-panchang-core`
 
-**Ultra-accurate, zero-dependency Marathi Panchang and Hindu Calendar engine for Web, Node.js, and Android.**
+**Ultra-accurate, zero-dependency Marathi Panchang and Hindu Calendar astronomical engine for Web, Node.js, and Android using Lahiri Ayanamsha & Amanta month system.**
 
 ### Key Features
-- **Panchang Elements (पंचांग)**: Full computation of Tithi (तिथी), Nakshatra (नक्षत्र with Pada & Ruler), Yoga (योग), Karana (करण with Bhadra / विष्टी alerts), and Samvat (शके व विक्रम संवत्सर).
-- **Solar & Lunar Ephemeris (खगोलीय स्थिती)**: Accurate Sunrise (सूर्योदय), Sunset (सूर्यास्त), and Moonrise (चंद्रोदय — essential for Sankashti Chaturthi fast).
-- **Inauspicious & Auspicious Timings**: Rahu Kaal (राहु काळ), Yamaganda, Gulika Kaal, Abhijit Muhurta, and Choghadiya (चोघडिया).
-- **Festival & Vrat Engine (सण व उत्सव)**: Pre-configured detection for Diwali, Gudi Padwa, Ganesh Chaturthi, Ekadashi, Sankashti, and regional Marathi festivals.
-- **Bilingual Output**: Complete support for both Marathi (मराठी) and English representations.
+- **Panchang Elements (पंचांग घटक)**: Full computation of Tithi (तिथी), Nakshatra (नक्षत्र with Pada & Ruler), Yoga (योग), Karana (करण with Bhadra / विष्टी alerts), and Samvat (शके १९४८ • पराभव संवत्सर).
+- **Amanta Month System (अमांत चांद्र मास)**: Month is calculated from preceding New Moon conjunction (अमावास्या), ensuring zero month-drift errors during solar sign transits (संक्रांती).
+- **Solar & Lunar Ephemeris (खगोलीय स्थिती)**: Accurate Sunrise (सूर्योदय), Sunset (सूर्यास्त), Solar Noon, Day Length, and Moonrise (चंद्रोदय — essential for Sankashti Chaturthi fast).
+- **Inauspicious & Auspicious Timings**: Rahu Kaal (राहू काळ), Yamaganda, Gulika Kaal, Abhijit Muhurta, and Brahma Muhurta.
+- **Festival & Vrat Engine (सण व उत्सव)**: Pre-configured detection for Gudi Padwa, Ashadhi/Kartiki Ekadashi, Ganesh Chaturthi, Rishi Panchami, Gauri Avahan & Pujan, Bail Pola, Navratri, Kojagiri, Diwali, and Sankashti Chaturthi.
+- **Universal Multi-Format Export**: Pure ES Module (`dist/index.js`), CommonJS (`dist/index.cjs`), and Browser IIFE Bundle (`dist/marathi-panchang.min.js`).
 
 ### Installation
 ```bash
@@ -94,23 +95,22 @@ npm install marathi-panchang-core
 
 ### Usage Example
 ```typescript
-import { getPanchang } from 'marathi-panchang-core';
+import { getMarathiPanchang } from 'marathi-panchang-core';
 
-// Calculate for Mumbai on a specific date
-const panchang = getPanchang({
-  date: new Date(),
-  latitude: 18.9220,
-  longitude: 72.8347,
-  timezone: 5.5 // IST
+// Calculate for Pune on a specific date
+const panchang = getMarathiPanchang('2026-08-19', {
+  latitude: 18.5204,
+  longitude: 73.8567,
+  timezoneOffsetHours: 5.5,
+  cityName: 'Pune'
 });
 
-console.log('Tithi:', panchang.tithi.nameMarathi, panchang.tithi.pakshaMarathi);
+console.log('Month:', panchang.month.fullMonthNameMarathi); // 'निज श्रावण'
+console.log('Tithi:', panchang.tithi.nameMarathi, panchang.tithi.pakshaMarathi); // 'सप्तमी', 'शुक्ल पक्ष'
 console.log('Nakshatra:', panchang.nakshatra.nameMarathi, 'Pada:', panchang.nakshatra.pada);
 console.log('Yoga:', panchang.yoga.nameMarathi, 'Auspicious:', panchang.yoga.isAuspicious);
-console.log('Karana:', panchang.karana.nameMarathi, 'Is Bhadra:', panchang.karana.isBhadra);
 console.log('Sunrise:', panchang.astronomy.sunrise, 'Sunset:', panchang.astronomy.sunset);
-console.log('Moonrise:', panchang.astronomy.moonrise);
-console.log('Rahu Kaal:', panchang.inauspiciousPeriods.rahuKaal.start, 'to', panchang.inauspiciousPeriods.rahuKaal.end);
+console.log('Rahu Kaal:', panchang.muhurta.rahuKaal.start, 'to', panchang.muhurta.rahuKaal.end);
 console.log('Festivals:', panchang.festivals.map(f => f.nameMarathi));
 ```
 
@@ -322,17 +322,27 @@ npx netlify-cli deploy --prod --dir=dist
 
 ### 📅 August 19, 2026
 
-#### 🐛 Bug Fixes & UI Accessibility
-- **Fixed Light Mode Text Contrast**: Resolved low-contrast and unreadable text in Light Mode across all 5 interactive studios.
-- **Panchang Festival Badges**: Updated Marathi festival badges (`सण व उत्सव`) from low-contrast light pink to deep, vibrant `#be185d` with clean borders for high WCAG readability.
-- **Header Badges & Version Tags**: Updated pale yellow/amber/green badges across all studio header banners to high-contrast theme-aligned colors.
-- **Decrypted Output & Verification Alerts**: Fixed pale green and red status containers in `aescryptor-ts` to ensure decrypted payloads and error states are crisp and legible.
-- **Theme Parity for Inputs**: Replaced hardcoded dark background textareas and boxes in `base64-toolkit` with theme-adaptive `var(--bg-input)` and `var(--bg-subtle)`.
-- **Validation Status Colors**: Enhanced contrast on RFC 4648 validation alerts in `base64-toolkit` (`#047857` valid / `#b91c1c` invalid).
+#### 🐛 Bug Fixes & Astronomical Alignment
+- **`marathi-panchang-core v1.0.4` Upgrade & Amanta Month Fix**:
+  - Upgraded to `marathi-panchang-core v1.0.4` across `package.json`, `packagesInfo.ts`, and `PanchangStudio.tsx`.
+  - Resolved lunar month calculation bug where current-day solar transit mistakenly shifted mid-August to Bhadrapada; the engine now strictly follows authentic Amanta Siddhanta (conjunction at preceding New Moon / Amavasya).
+  - Aligned Maharashtrian festival dates (Pithori Amavasya / Pola on Sep 11, Ganesh Chaturthi on Sep 14, Rishi Panchami on Sep 15, and Jyeshtha Gauri Pujan on Sep 18, 2026).
+- **ESM Module Resolution for Vite**:
+  - Resolved `Uncaught SyntaxError: The requested module does not provide an export named 'getMarathiPanchang'` by generating native ES Module exports (`dist/index.js`) and dual CJS/ESM packaging in `marathi-panchang-core`.
+- **Client Error Boundary (`ErrorBoundary.tsx`)**:
+  - Implemented `<ErrorBoundary />` wrapper around active studios to catch uncaught component exceptions and display informative diagnostic stacks instead of blank white screens.
+- **Light Mode Text Contrast & Readability**:
+  - Resolved low-contrast and unreadable text in Light Mode across all 5 interactive studios.
+  - Updated Marathi festival badges (`सण व उत्सव`) to deep, vibrant `#be185d` with clean borders for high WCAG readability.
+  - Enhanced contrast on RFC 4648 validation alerts in `base64-toolkit` (`#047857` valid / `#b91c1c` invalid).
 
-#### 🚀 Enhancements
-- Verified full responsiveness and theme switching transitions across all components.
-- Streamlined production build and Netlify deployment instructions.
+#### 🚀 UI & Design Enhancements
+- **Ultra-Sleek Modern Custom Scrollbars**:
+  - Redesigned the harsh default scrollbars into a modern 7px rounded capsule with an ambient indigo-to-cyan linear gradient thumb and soft translucent track.
+  - Added hover illumination effects and cross-browser support (WebKit & Firefox).
+  - Refined horizontal navigation bar padding in `TabNav.tsx` for clean, unconstrained scrolling.
+- **Interactive Festival Presets**:
+  - Added quick-jump presets for Bail Pola, Rishi Panchami, and Gauri Pujan 2026 directly into `PanchangStudio.tsx`.
 
 ---
 

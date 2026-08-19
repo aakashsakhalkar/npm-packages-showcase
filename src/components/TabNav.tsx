@@ -38,7 +38,7 @@ export const TabNav: React.FC<TabNavProps> = ({ activeTab, onSelectTab }) => {
       alignItems: 'center',
       gap: '8px',
       overflowX: 'auto',
-      padding: '8px',
+      padding: '8px 8px 10px 8px',
       background: 'var(--bg-card)',
       backdropFilter: 'blur(16px)',
       borderRadius: 'var(--radius-xl)',
