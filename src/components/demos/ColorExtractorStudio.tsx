@@ -175,8 +175,8 @@ console.log('Preferred Text Color:', wcag.preferredTextColor); // #FFFFFF or #00
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <h2 style={{ fontSize: '1.4rem', fontWeight: 800 }}>web-color-extractor 🎨</h2>
-              <span className="badge" style={{ background: 'rgba(236, 72, 153, 0.2)', color: '#f472b6' }}>v1.0.0</span>
-              <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#94a3b8' }}>MMCQ + Worker</span>
+              <span className="badge" style={{ background: 'rgba(236, 72, 153, 0.15)', color: '#db2777', border: '1px solid rgba(236, 72, 153, 0.3)' }}>v1.0.0</span>
+              <span className="badge" style={{ background: 'var(--bg-subtle)', color: 'var(--text-secondary)', border: '1px solid var(--border-subtle)' }}>MMCQ + Worker</span>
             </div>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem' }}>
               Client-side dynamic color palette extractor, 7 profile swatches, and WCAG contrast validator.
@@ -185,7 +185,7 @@ console.log('Preferred Text Color:', wcag.preferredTextColor); // #FFFFFF or #00
         </div>
 
         {processTime > 0 && (
-          <span className="badge" style={{ background: 'rgba(236, 72, 153, 0.15)', color: '#f472b6', padding: '6px 12px' }}>
+          <span className="badge" style={{ background: 'rgba(236, 72, 153, 0.15)', color: '#db2777', border: '1px solid rgba(236, 72, 153, 0.3)', padding: '6px 12px' }}>
             <Zap size={14} /> Extracted in {processTime} ms
           </span>
         )}
@@ -343,7 +343,7 @@ console.log('Preferred Text Color:', wcag.preferredTextColor); // #FFFFFF or #00
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', marginBottom: '4px' }}>
                 <span style={{ color: 'var(--text-secondary)' }}>Quality / Step (`options.quality`):</span>
-                <span style={{ fontFamily: 'var(--font-mono)', color: '#38bdf8', fontWeight: 700 }}>
+                <span style={{ fontFamily: 'var(--font-mono)', color: '#0284c7', fontWeight: 700 }}>
                   {quality} ({quality === 1 ? 'Highest Precision' : 'Faster Sampling'})
                 </span>
               </div>

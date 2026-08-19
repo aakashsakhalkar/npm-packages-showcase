@@ -119,8 +119,8 @@ console.log('Festivals:', panchang.festivals);`;
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <h2 style={{ fontSize: '1.4rem', fontWeight: 800 }}>marathi-panchang-core 🚩</h2>
-              <span className="badge" style={{ background: 'rgba(245, 158, 11, 0.2)', color: '#fbbf24' }}>v1.0.3</span>
-              <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#94a3b8' }}>100% Offline</span>
+              <span className="badge" style={{ background: 'rgba(245, 158, 11, 0.15)', color: '#d97706', border: '1px solid rgba(245, 158, 11, 0.3)' }}>v1.0.3</span>
+              <span className="badge" style={{ background: 'var(--bg-subtle)', color: 'var(--text-secondary)', border: '1px solid var(--border-subtle)' }}>100% Offline</span>
             </div>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem' }}>
               High-precision Lahiri Ayanamsha & Amanta Hindu Calendar astronomical engine for Maharashtra.
@@ -205,7 +205,7 @@ console.log('Festivals:', panchang.festivals);`;
         {/* Custom Coordinates Inputs (Conditional) */}
         {isCustomCity && (
           <div style={{
-            background: 'rgba(0, 0, 0, 0.3)',
+            background: 'var(--bg-subtle)',
             padding: '14px',
             borderRadius: 'var(--radius-md)',
             border: '1px solid var(--border-subtle)',
@@ -270,9 +270,9 @@ console.log('Festivals:', panchang.festivals);`;
                   borderRadius: '999px',
                   fontSize: '0.78rem',
                   fontWeight: 600,
-                  background: selectedDate === p.date ? 'rgba(245, 158, 11, 0.25)' : 'rgba(255, 255, 255, 0.05)',
-                  color: selectedDate === p.date ? '#fbbf24' : 'var(--text-secondary)',
-                  border: selectedDate === p.date ? '1px solid #f59e0b' : '1px solid var(--border-subtle)',
+                  background: selectedDate === p.date ? 'rgba(245, 158, 11, 0.2)' : 'var(--bg-subtle)',
+                  color: selectedDate === p.date ? '#b45309' : 'var(--text-secondary)',
+                  border: selectedDate === p.date ? '1.5px solid #d97706' : '1px solid var(--border-subtle)',
                 }}
               >
                 {p.label}
@@ -375,13 +375,21 @@ console.log('Festivals:', panchang.festivals);`;
                 padding: '12px',
                 borderRadius: 'var(--radius-md)',
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#f472b6', fontSize: '0.82rem', fontWeight: 700 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#db2777', fontSize: '0.82rem', fontWeight: 700 }}>
                   <Sparkles size={14} />
                   <span>सण व उत्सव (Festivals & Vrat):</span>
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '6px' }}>
                   {panchangData.festivals.map((f: any, i: number) => (
-                    <span key={i} style={{ padding: '3px 8px', borderRadius: '4px', background: 'rgba(236, 72, 153, 0.2)', color: '#fbcfe8', fontSize: '0.82rem', fontWeight: 600 }}>
+                    <span key={i} style={{
+                      padding: '4px 10px',
+                      borderRadius: '6px',
+                      background: 'rgba(236, 72, 153, 0.15)',
+                      color: '#be185d',
+                      border: '1px solid rgba(236, 72, 153, 0.3)',
+                      fontSize: '0.82rem',
+                      fontWeight: 700
+                    }}>
                       🚩 {displayLanguage === 'mr' ? (f.nameMarathi || f.name) : f.name}
                     </span>
                   ))}

@@ -201,8 +201,8 @@ console.log('Decrypted Data:', decrypted);`;
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <h2 style={{ fontSize: '1.4rem', fontWeight: 800 }}>aescryptor-ts Live Studio</h2>
-              <span className="badge" style={{ background: 'rgba(16, 185, 129, 0.2)', color: '#34d399' }}>v1.0.0</span>
-              <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#94a3b8' }}>Zero-Dep</span>
+              <span className="badge" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#059669', border: '1px solid rgba(16, 185, 129, 0.3)' }}>v1.0.0</span>
+              <span className="badge" style={{ background: 'var(--bg-subtle)', color: 'var(--text-secondary)', border: '1px solid var(--border-subtle)' }}>Zero-Dep</span>
             </div>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem' }}>
               Authenticated AES-256-GCM encryption with PBKDF2 key derivation, cryptographic salts, and tamper verification.
@@ -376,7 +376,7 @@ console.log('Decrypted Data:', decrypted);`;
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', marginBottom: '4px' }}>
                 <span style={{ color: 'var(--text-secondary)' }}>PBKDF2 Iterations (`options.iterations`):</span>
-                <span style={{ fontFamily: 'var(--font-mono)', color: '#38bdf8', fontWeight: 600 }}>
+                <span style={{ fontFamily: 'var(--font-mono)', color: '#0284c7', fontWeight: 700 }}>
                   {iterations.toLocaleString()} rounds
                 </span>
               </div>
@@ -454,7 +454,7 @@ console.log('Decrypted Data:', decrypted);`;
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700 }}>2. Encrypted Output & Verification</h3>
             </div>
             {executionTime > 0 && (
-              <span className="badge" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8' }}>
+              <span className="badge" style={{ background: 'rgba(6, 182, 212, 0.15)', color: '#0284c7', border: '1px solid rgba(6, 182, 212, 0.3)' }}>
                 <Zap size={12} /> {executionTime} ms
               </span>
             )}
@@ -582,7 +582,7 @@ console.log('Decrypted Data:', decrypted);`;
               </button>
             </div>
             {tamperedNotice && (
-              <div style={{ fontSize: '0.78rem', color: '#fbbf24', fontWeight: 600 }}>{tamperedNotice}</div>
+              <div style={{ fontSize: '0.82rem', color: '#b45309', fontWeight: 700 }}>{tamperedNotice}</div>
             )}
           </div>
 
@@ -595,24 +595,25 @@ console.log('Decrypted Data:', decrypted);`;
               <div style={{
                 padding: '12px',
                 borderRadius: 'var(--radius-md)',
-                background: 'rgba(239, 68, 68, 0.15)',
-                border: '1px solid rgba(239, 68, 68, 0.3)',
-                color: '#f87171',
+                background: 'rgba(239, 68, 68, 0.12)',
+                border: '1.5px solid rgba(239, 68, 68, 0.35)',
+                color: '#b91c1c',
                 fontSize: '0.85rem',
                 display: 'flex',
                 alignItems: 'flex-start',
                 gap: '8px',
+                fontWeight: 600,
               }}>
-                <XCircle size={18} style={{ flexShrink: 0, marginTop: '2px' }} />
+                <XCircle size={18} style={{ flexShrink: 0, marginTop: '2px', color: '#dc2626' }} />
                 <span>{errorStatus}</span>
               </div>
             ) : (
               <div style={{
                 padding: '12px',
                 borderRadius: 'var(--radius-md)',
-                background: 'rgba(16, 185, 129, 0.12)',
-                border: '1px solid rgba(16, 185, 129, 0.25)',
-                color: '#34d399',
+                background: 'rgba(16, 185, 129, 0.1)',
+                border: '1.5px solid rgba(16, 185, 129, 0.3)',
+                color: 'var(--text-primary)',
                 fontSize: '0.88rem',
                 fontFamily: 'var(--font-mono)',
                 whiteSpace: 'pre-wrap',
@@ -620,7 +621,7 @@ console.log('Decrypted Data:', decrypted);`;
                 maxHeight: '160px',
                 overflowY: 'auto',
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px', color: '#10b981', fontWeight: 700 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px', color: '#059669', fontWeight: 800 }}>
                   <CheckCircle2 size={16} />
                   <span>Decryption Succeeded & Tag Verified Authentic!</span>
                 </div>

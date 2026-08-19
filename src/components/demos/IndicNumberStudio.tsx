@@ -171,8 +171,8 @@ console.log('Ordinal:', toOrdinal(val, { lang }));`;
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <h2 style={{ fontSize: '1.4rem', fontWeight: 800 }}>indic-number-words 🇮🇳</h2>
-              <span className="badge" style={{ background: 'rgba(99, 102, 241, 0.2)', color: '#818cf8' }}>v1.0.1</span>
-              <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#94a3b8' }}>18 Languages</span>
+              <span className="badge" style={{ background: 'rgba(99, 102, 241, 0.15)', color: '#4f46e5', border: '1px solid rgba(99, 102, 241, 0.3)' }}>v1.0.1</span>
+              <span className="badge" style={{ background: 'var(--bg-subtle)', color: 'var(--text-secondary)', border: '1px solid var(--border-subtle)' }}>18 Languages</span>
             </div>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem' }}>
               Convert numbers into Indian format, words, currency phrases, fractions, native script digits, and ordinals across 18 Indic languages.
@@ -188,8 +188,8 @@ console.log('Ordinal:', toOrdinal(val, { lang }));`;
             gap: '8px',
             padding: '10px 16px',
             borderRadius: 'var(--radius-md)',
-            background: viewAllGrid ? '#6366f1' : 'rgba(99, 102, 241, 0.15)',
-            color: viewAllGrid ? '#ffffff' : '#818cf8',
+            background: viewAllGrid ? '#4f46e5' : 'rgba(99, 102, 241, 0.15)',
+            color: viewAllGrid ? '#ffffff' : '#4f46e5',
             border: '1px solid rgba(99, 102, 241, 0.4)',
             fontWeight: 700,
             fontSize: '0.85rem',

@@ -233,8 +233,8 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <h2 style={{ fontSize: '1.4rem', fontWeight: 800 }}>base64-toolkit 🧰</h2>
-              <span className="badge" style={{ background: 'rgba(6, 182, 212, 0.2)', color: '#22d3ee' }}>v1.0.0</span>
-              <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#94a3b8' }}>30+ Magic Bytes</span>
+              <span className="badge" style={{ background: 'rgba(6, 182, 212, 0.15)', color: '#0284c7', border: '1px solid rgba(6, 182, 212, 0.3)' }}>v1.0.0</span>
+              <span className="badge" style={{ background: 'var(--bg-subtle)', color: 'var(--text-secondary)', border: '1px solid var(--border-subtle)' }}>30+ Magic Bytes</span>
             </div>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem' }}>
               Universal Base64 conversion, 30+ format magic-byte inspection, streaming chunks, and RFC 4648 URL-safe toolkit.
@@ -259,8 +259,10 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
                 borderRadius: 'var(--radius-md)',
                 fontSize: '0.82rem',
                 fontWeight: 700,
-                background: activeTab === t.id ? '#06b6d4' : 'rgba(255, 255, 255, 0.06)',
-                color: activeTab === t.id ? '#000000' : 'var(--text-secondary)',
+                background: activeTab === t.id ? '#0284c7' : 'var(--bg-subtle)',
+                color: activeTab === t.id ? '#ffffff' : 'var(--text-secondary)',
+                border: activeTab === t.id ? '1px solid #0284c7' : '1px solid var(--border-subtle)',
+                boxShadow: activeTab === t.id ? '0 2px 8px rgba(2, 132, 199, 0.3)' : 'none',
               }}
             >
               {t.label}
@@ -273,7 +275,7 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
       {activeTab === 'text' && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '24px' }}>
           <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#22d3ee' }}>1. UTF-8 Unicode / Multi-byte Text Input</h3>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>1. UTF-8 Unicode / Multi-byte Text Input</h3>
             <textarea
               value={plainText}
               onChange={(e) => setPlainText(e.target.value)}
@@ -285,26 +287,26 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
                 type="checkbox"
                 checked={textUrlSafe}
                 onChange={(e) => setTextUrlSafe(e.target.checked)}
-                style={{ accentColor: '#06b6d4' }}
+                style={{ accentColor: '#0284c7' }}
               />
               <span>RFC 4648 URL-Safe Mode (`+` ➔ `-`, `/` ➔ `_`)</span>
             </label>
           </div>
 
           <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#34d399' }}>2. Base64 Encoded & Decoded Output</h3>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>2. Base64 Encoded & Decoded Output</h3>
             <div>
               <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Encoded Base64 String:</span>
               <textarea
                 readOnly
                 value={textEncoded}
                 rows={3}
-                style={{ width: '100%', fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: '#22d3ee', background: '#070b14', marginTop: '4px' }}
+                style={{ width: '100%', fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: '#0284c7', background: 'var(--bg-input)', border: '1px solid var(--border-subtle)', marginTop: '4px' }}
               />
             </div>
             <div>
               <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Decoded Back to Plaintext:</span>
-              <div style={{ padding: '12px', borderRadius: 'var(--radius-md)', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)', color: '#6ee7b7', marginTop: '4px', fontSize: '0.9rem' }}>
+              <div style={{ padding: '12px', borderRadius: 'var(--radius-md)', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.25)', color: 'var(--text-primary)', marginTop: '4px', fontSize: '0.9rem' }}>
                 {textDecoded}
               </div>
             </div>
@@ -317,7 +319,7 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '24px' }}>
           <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#22d3ee' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>
                 Base64 or Data URL to Inspect
               </h3>
               <input
@@ -333,8 +335,9 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
                   alignItems: 'center',
                   gap: '4px',
                   padding: '4px 10px',
-                  background: 'rgba(6, 182, 212, 0.15)',
-                  color: '#22d3ee',
+                  background: 'rgba(6, 182, 212, 0.12)',
+                  color: '#0284c7',
+                  border: '1px solid rgba(6, 182, 212, 0.3)',
                   borderRadius: 'var(--radius-sm)',
                   fontSize: '0.78rem',
                   fontWeight: 600,
@@ -353,8 +356,9 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
                   style={{
                     padding: '4px 10px',
                     borderRadius: 'var(--radius-sm)',
-                    background: inspectorInput === sample.data ? '#06b6d4' : 'rgba(255, 255, 255, 0.06)',
-                    color: inspectorInput === sample.data ? '#000000' : 'var(--text-secondary)',
+                    background: inspectorInput === sample.data ? '#0284c7' : 'var(--bg-subtle)',
+                    color: inspectorInput === sample.data ? '#ffffff' : 'var(--text-secondary)',
+                    border: inspectorInput === sample.data ? '1px solid #0284c7' : '1px solid var(--border-subtle)',
                     fontSize: '0.75rem',
                     fontWeight: 600,
                   }}
@@ -374,7 +378,7 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
           </div>
 
           <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#38bdf8' }}>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>
               🔍 Magic Byte Inspection Report (`inspect()`)
             </h3>
 
@@ -418,7 +422,7 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
                 <div style={{ background: 'var(--bg-subtle)', padding: '12px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle)' }}>
                   <span style={{ color: 'var(--text-secondary)' }}>Base64 Overhead:</span>
                   <div style={{ fontWeight: 800, color: '#db2777' }}>
-                    +33.59% (+{inspectionReport.encodedSize - inspectionReport.estimatedDecodedSize} bytes)
+                    +{inspectionReport.encodedSize - inspectionReport.estimatedDecodedSize} bytes
                   </div>
                 </div>
               </div>
@@ -433,7 +437,7 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
                 <div style={{
                   height: '100px',
                   borderRadius: 'var(--radius-md)',
-                  background: '#070b14',
+                  background: 'var(--bg-subtle)',
                   border: '1px solid var(--border-subtle)',
                   display: 'flex',
                   alignItems: 'center',
@@ -452,7 +456,7 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
       {activeTab === 'urlsafe' && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '24px' }}>
           <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#22d3ee' }}>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>
               Standard Base64 Input
             </h3>
             <input
@@ -466,17 +470,17 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
                 type="checkbox"
                 checked={urlSafePadding}
                 onChange={(e) => setUrlSafePadding(e.target.checked)}
-                style={{ accentColor: '#06b6d4' }}
+                style={{ accentColor: '#0284c7' }}
               />
               <span>Preserve Trailing '=' Padding (`preservePadding: true`)</span>
             </label>
           </div>
 
           <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#34d399' }}>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>
               URL-Safe Base64 (`toBase64Url()`)
             </h3>
-            <div style={{ padding: '14px', borderRadius: 'var(--radius-md)', background: '#070b14', border: '1px solid var(--border-subtle)', fontFamily: 'var(--font-mono)', color: '#22d3ee' }}>
+            <div style={{ padding: '14px', borderRadius: 'var(--radius-md)', background: 'var(--bg-input)', border: '1px solid var(--border-subtle)', fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>
               {urlSafeConverted}
             </div>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
@@ -489,7 +493,7 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
       {/* Feature 4: Streaming Generator */}
       {activeTab === 'streaming' && (
         <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#22d3ee' }}>
+          <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>
             Chunked Streaming Simulator (`createChunkedEncoder`)
           </h3>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
@@ -515,7 +519,7 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
 
           <div style={{ marginTop: '12px' }}>
             <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Streamed Base64 Output:</span>
-            <div style={{ padding: '12px', borderRadius: 'var(--radius-md)', background: '#070b14', color: '#34d399', fontFamily: 'var(--font-mono)', marginTop: '4px' }}>
+            <div style={{ padding: '12px', borderRadius: 'var(--radius-md)', background: 'var(--bg-input)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)', fontFamily: 'var(--font-mono)', marginTop: '4px' }}>
               {streamEncoded}
             </div>
           </div>
@@ -525,7 +529,7 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
       {/* Feature 5: Strict Validator */}
       {activeTab === 'validator' && (
         <div className="glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#22d3ee' }}>
+          <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>
             Strict RFC 4648 Base64 Validator (`validateBase64()`)
           </h3>
           <input
@@ -539,9 +543,9 @@ const urlSafeStr = toBase64Url(b64, { preservePadding: ${urlSafePadding} });`;
           <div style={{
             padding: '14px',
             borderRadius: 'var(--radius-md)',
-            background: validationResult.isValid ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)',
-            border: validationResult.isValid ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid rgba(239, 68, 68, 0.3)',
-            color: validationResult.isValid ? '#34d399' : '#f87171',
+            background: validationResult.isValid ? 'rgba(16, 185, 129, 0.12)' : 'rgba(239, 68, 68, 0.12)',
+            border: validationResult.isValid ? '1.5px solid rgba(16, 185, 129, 0.35)' : '1.5px solid rgba(239, 68, 68, 0.35)',
+            color: validationResult.isValid ? '#047857' : '#b91c1c',
             fontWeight: 700,
             fontSize: '0.9rem',
           }}>
